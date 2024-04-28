@@ -1,4 +1,4 @@
-# Welcome to my prototype for a `IOT  API`
+# Welcome to my prototype for a `IOT API`
 Java | Spring | Spring Boot | Docker | PostgreSQL
 
 ## Requirements
