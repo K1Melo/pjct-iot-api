@@ -32,4 +32,9 @@ public class DataController {
     public Data postData(@RequestBody Data data) throws DataAlreadyRegisteredException {
         return dataServices.postData(data);
     }
+
+    @PutMapping(path = "/{username}")
+    public Data putData(@PathVariable String username, @RequestBody Data data) throws NotFoundException {
+        return dataServices.changeData(username, data);
+    }
 }

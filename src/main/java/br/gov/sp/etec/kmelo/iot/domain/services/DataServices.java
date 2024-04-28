@@ -3,6 +3,7 @@ package br.gov.sp.etec.kmelo.iot.domain.services;
 import br.gov.sp.etec.kmelo.iot.domain.entities.Data;
 import br.gov.sp.etec.kmelo.iot.domain.exceptions.DataAlreadyRegisteredException;
 import br.gov.sp.etec.kmelo.iot.domain.exceptions.NotFoundException;
+import br.gov.sp.etec.kmelo.iot.domain.utils.DataUtils;
 import br.gov.sp.etec.kmelo.iot.resources.dto.DataDTO;
 import br.gov.sp.etec.kmelo.iot.resources.jdbc.repository.DataRepositoryJdbc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,15 @@ public class DataServices {
 
         dataRepository.save(data);
         return data;
+    }
+
+    public Data changeData(String username, Data updatedData) throws NotFoundException {
+        Data currentData = this.dataRepository.findByUsername(username);
+
+        if (!dataExists(currentData)) throw new NotFoundException();
+
+        DataUtils.copyNonNullProperties(updatedData, currentData);
+        return this.dataRepository.save(currentData);
     }
 
     private Boolean dataExists(Data data) {
