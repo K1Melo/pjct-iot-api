@@ -4,9 +4,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://dpg-con81l8cmk4c73a0jqpg-a.oregon-postgres.render.com:5432/iot_3twu
+    username: k1melo
+    password: a4ZLTuX3GsS4imNaz0YwyfauKywBc1vz
   jpa:
     hibernate:
       ddl-auto: update
