@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
@@ -46,12 +47,18 @@ public class DataServices {
         return this.dataRepository.save(currentData);
     }
 
+    public void deleteData(String username) throws NotFoundException {
+        Data data = this.dataRepository.findByUsername(username);
+        if (!dataExists(data)) throw new NotFoundException();
+        dataRepository.delete(data);
+    }
+
     private Boolean dataExists(Data data) {
         AtomicBoolean dataExits = new AtomicBoolean(false);
 
         List<Data> listData = dataRepository.findAll();
         listData.forEach(d -> {
-            if (d == data) {
+            if (Objects.equals(d.getUsername(), data.getUsername())) {
                 dataExits.set(true);
             }
         });

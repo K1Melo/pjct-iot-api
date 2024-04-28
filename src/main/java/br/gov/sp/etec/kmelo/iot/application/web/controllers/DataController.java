@@ -37,4 +37,10 @@ public class DataController {
     public Data putData(@PathVariable String username, @RequestBody Data data) throws NotFoundException {
         return dataServices.changeData(username, data);
     }
+
+    @DeleteMapping(path = "/{username}")
+    public ResponseEntity<String> delData(@PathVariable String username) throws NotFoundException {
+        dataServices.deleteData(username);
+        return ResponseEntity.ok("Data of " + username + " was deleted");
+    }
 }
