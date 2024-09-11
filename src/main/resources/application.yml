@@ -4,9 +4,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://dpg-con81l8cmk4c73a0jqpg-a.oregon-postgres.render.com:5432/iot_3twu
+    url: jdbc:postgresql://dpg-crgf2kbv2p9s73abj2kg-a.oregon-postgres.render.com:5432/iotdata_o0hp
     username: k1melo
-    password: a4ZLTuX3GsS4imNaz0YwyfauKywBc1vz
+    password: wDtA1koV3yZuqi7PzIGAKKIO9Bab9NQB
   jpa:
     hibernate:
       ddl-auto: update
