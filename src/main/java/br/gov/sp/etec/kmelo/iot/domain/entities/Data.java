@@ -21,14 +21,25 @@ public class Data {
 
     private Float illumination;
 
+    public Float getSoil_moisture() {
+        return soil_moisture;
+    }
+
+    public void setSoil_moisture(Float soil_moisture) {
+        this.soil_moisture = soil_moisture;
+    }
+
+    private Float soil_moisture;
+
     public Data() {
     }
 
-    public Data(String username, Integer air_humidity, Integer temperature, Float illumination) {
+    public Data(String username, Integer air_humidity, Integer temperature, Float illumination, Float soil_moisture) {
         this.username = username;
         this.air_humidity = air_humidity;
         this.temperature = temperature;
         this.illumination = illumination;
+        this.soil_moisture = soil_moisture;
     }
 
     public Integer getId() {

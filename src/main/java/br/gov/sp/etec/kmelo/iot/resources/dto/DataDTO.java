@@ -7,6 +7,7 @@ public class DataDTO {
     private Integer air_humidity;
     private Integer temperature;
     private Float illumination;
+    private Float soil_moisture;
 
     public DataDTO() {
     }
@@ -16,6 +17,7 @@ public class DataDTO {
         air_humidity = data.getAir_humidity();
         temperature = data.getTemperature();
         illumination = data.getIllumination();
+        soil_moisture = data.getSoil_moisture();
     }
 
     public Integer getId() {
@@ -44,6 +46,14 @@ public class DataDTO {
 
     public Float getIllumination() {
         return illumination;
+    }
+
+    public Float getSoil_moisture() {
+        return soil_moisture;
+    }
+
+    public void setSoil_moisture(Float soil_moisture) {
+        this.soil_moisture = soil_moisture;
     }
 
     public void setIllumination(Float illumination) {
