@@ -18,26 +18,31 @@ public class DataController {
     @Autowired
     private DataServices dataServices;
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<DataDTO> findAll() {
         return dataServices.findAll();
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/{username}")
     public Data findOne(@PathVariable String username) throws NotFoundException {
         return dataServices.findOne(username);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public Data postData(@RequestBody Data data) throws DataAlreadyRegisteredException {
         return dataServices.postData(data);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping(path = "/{username}")
     public Data putData(@PathVariable String username, @RequestBody Data data) throws NotFoundException {
         return dataServices.changeData(username, data);
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping(path = "/{username}")
     public ResponseEntity<String> delData(@PathVariable String username) throws NotFoundException {
         dataServices.deleteData(username);
